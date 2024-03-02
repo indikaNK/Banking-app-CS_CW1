@@ -1,3 +1,5 @@
+package bank;
+
 import java.math.BigDecimal;
 
 public class BankAccount {
@@ -36,8 +38,8 @@ public class BankAccount {
         this.accountNumber = accountNumber;
     }
 
-    public synchronized BigDecimal getBalance() {
-        return balance;
+    public synchronized void getBalance() {
+        System.out.println("Current Balance:"+balance);
     }
 
     public synchronized void setBalance(double balance) {
@@ -46,6 +48,7 @@ public class BankAccount {
 
     // these are the basic functionalities that are supported by my banking app
 
+    //regular client deposit
     public synchronized void depositMoney(BigDecimal amount){
         //if the amount is greater than 0 only, then we allow the transaction
         if(amount.intValue() > 0 ){
@@ -53,8 +56,23 @@ public class BankAccount {
             BigDecimal amountTobeAdded = new BigDecimal(amount.intValue());
             balance = balance.add(amountTobeAdded);
 
-            System.out.println(Thread.currentThread().getName() +", After Deposit Account Balance "+this.getBalance());
+            System.out.println(Thread.currentThread().getName() +", After Deposit Account Balance "+balance);
 
         }
     }
+
+    public synchronized void withdrawMoney(BigDecimal amount){
+        //if the amount is greater than 0 only, then we allow the transaction
+        if(amount.doubleValue() <= balance.doubleValue() ){
+            //we should update the balance
+            BigDecimal amountTobeRemoved = new BigDecimal(amount.intValue());
+            balance = balance.subtract(amountTobeRemoved);
+
+            System.out.println(Thread.currentThread().getName() +", After Withdraw Account Balance "+balance);
+
+        }
+    }
+
+
+
 }
