@@ -16,6 +16,7 @@ public class RegularClient extends Client{
     // run method overriding allow to use specific cases for different type of clients
     @Override
     public void run() {
+        System.out.println(":::Regular Clients:::");
 
         // check transaction amount exceeds the limit
         if( amount > super.DEFAULT_LIMIT){

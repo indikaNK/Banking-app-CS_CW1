@@ -11,6 +11,7 @@ public class VIPClient extends Client{
 
     @Override
     public void run() {
+        System.out.println("****:::VIP Clients:::****");
 
         //try to deposit money to account
         bankAccount.depositMoney(BigDecimal.valueOf(amount));
