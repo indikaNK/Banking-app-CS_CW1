@@ -13,9 +13,9 @@ public class VIPClient extends Client{
     public void run() {
 
         //try to deposit money to account
-        bankAccount.depositMoney(BigDecimal.valueOf(1000));
+        bankAccount.depositMoney(BigDecimal.valueOf(amount));
         bankAccount.getBalance();
-        bankAccount.withdrawMoney(BigDecimal.valueOf(500));
+        bankAccount.withdrawMoney(BigDecimal.valueOf(amount));
 
     }
 

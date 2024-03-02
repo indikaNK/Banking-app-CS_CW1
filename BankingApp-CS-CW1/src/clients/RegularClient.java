@@ -22,12 +22,11 @@ public class RegularClient extends Client{
             System.out.println("Sorry ! This Transaction cannot be proceed of It Exceed The Max Limit LKR. "+super.DEFAULT_LIMIT);
         }else {
            //try to deposit money to account
-            bankAccount.depositMoney(BigDecimal.valueOf(1000));
+            bankAccount.depositMoney(BigDecimal.valueOf(amount));
             bankAccount.getBalance();
-            bankAccount.withdrawMoney(BigDecimal.valueOf(500));
+            // try to withdraw money
+            bankAccount.withdrawMoney(BigDecimal.valueOf(amount));
         }
-
-
 
     }
 }
